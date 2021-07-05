@@ -6,12 +6,10 @@ class ClockState {
       : hr = startHr,
         min = startMin;
 
-  var current = 'on';
+  var current = 'idle';
 
   void goNext() {
-    if (current == 'on') {
-      current = 'idle';
-    } else if (current == 'idle') {
+    if (current == 'idle') {
       current = 'setHr';
     } else if (current == 'setHr') {
       current = 'setMin';

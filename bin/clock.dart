@@ -33,6 +33,6 @@ void main(List<String> arguments) {
         }
       }
     }
-    print('time = ${state.hr} : ${state.min}');
   }
+  print('time = ${state.hr} : ${state.min}');
 }

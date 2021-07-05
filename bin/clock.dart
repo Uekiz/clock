@@ -5,11 +5,14 @@ void main(List<String> arguments) {
   var onIndex;
   var state;
   var splitedInput = input.split(' ');
+  print(splitedInput.length);
+  print(state);
+  print(onIndex);
   for (var i = 0; i < splitedInput.length; i++) {
     if (splitedInput[i] == 'on' && state == null) {
       var hr = int.parse(splitedInput[i + 1]);
       var min = int.parse(splitedInput[i + 2]);
-      if (hr > 0 && hr < 24 && min > 0 && min < 60) {
+      if (hr >= 0 && hr <= 24 && min >= 0 && min <= 60) {
         state = ClockState(hr, min);
         onIndex = i + 3;
       } else {
@@ -20,14 +23,16 @@ void main(List<String> arguments) {
       for (var i = onIndex; i < splitedInput.length; i++) {
         if (splitedInput[i] == 'set') {
           state.goNext();
+          print('change state');
         } else if (splitedInput[i] == 'inc' && state.current == 'setHr') {
           state.incHr();
+          print('inc hr');
         } else if (splitedInput[i] == 'inc' && state.current == 'setMin') {
           state.incMin();
-        } else {
-          print('invalid command');
+          print('inc min');
         }
       }
     }
   }
+  print('time = ${state.hr} : ${state.min}');
 }

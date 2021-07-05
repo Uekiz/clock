@@ -18,21 +18,21 @@ void main(List<String> arguments) {
       } else {
         print('invalid datetime');
       }
-    }
-    if (state != null) {
-      for (var i = onIndex; i < splitedInput.length; i++) {
-        if (splitedInput[i] == 'set') {
-          state.goNext();
-          print('change state');
-        } else if (splitedInput[i] == 'inc' && state.current == 'setHr') {
-          state.incHr();
-          print('inc hr');
-        } else if (splitedInput[i] == 'inc' && state.current == 'setMin') {
-          state.incMin();
-          print('inc min');
+      if (state != null) {
+        for (var i = onIndex; i < splitedInput.length; i++) {
+          if (splitedInput[i] == 'set') {
+            state.goNext();
+            print('change state');
+          } else if (splitedInput[i] == 'inc' && state.current == 'setHr') {
+            state.incHr();
+            print('inc hr');
+          } else if (splitedInput[i] == 'inc' && state.current == 'setMin') {
+            state.incMin();
+            print('inc min');
+          }
         }
       }
     }
+    print('time = ${state.hr} : ${state.min}');
   }
-  print('time = ${state.hr} : ${state.min}');
 }

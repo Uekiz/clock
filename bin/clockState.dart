@@ -6,10 +6,7 @@ class ClockState {
       : hr = startHr,
         min = startMin;
 
-
   var current = 'on';
-
-
 
   void goNext() {
     if (current == 'on') {
@@ -23,12 +20,19 @@ class ClockState {
     }
   }
 
-  void incHr(){
-    hr = hr+1;
+  void incHr() {
+    if (hr == 24) {
+      hr = 0;
+    } else {
+      hr = hr + 1;
+    }
   }
 
-  void incMin(){
-    min = min+1;
+  void incMin() {
+    if (min == 60) {
+      min = 0;
+    } else {
+      min = min + 1;
+    }
   }
-
 }
